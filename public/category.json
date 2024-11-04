@@ -1,0 +1,22 @@
+[
+  {
+    "uniqueId": "x1y2z3a4b5",
+    "categoryName": "Computers"
+  },
+  {
+    "uniqueId": "c6d7e8f9g0",
+    "categoryName": "Phones"
+  },
+  {
+    "uniqueId": "h1i2j3k4l5",
+    "categoryName": "Smart Watches"
+  },
+  {
+    "uniqueId": "m6n7o8p9q0",
+    "categoryName": "Chargers"
+  },
+  {
+    "uniqueId": "r1s2t3u4v5",
+    "categoryName": "Power Banks"
+  }
+]
