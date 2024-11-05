@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 
 const ExploreAllGadget = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-8 xl:mt-48 lg:mt-56 md:mt-56 mt-48">
+    <div className="min-h-screen bg-gray-100 container mx-auto p-8 xl:mt-48 lg:mt-56 md:mt-56 mt-48">
       <h1 className="text-2xl font-bold text-center mb-8">
         Explore Cutting-Edge Gadgets
       </h1>
