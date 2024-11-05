@@ -10,13 +10,17 @@ Gadget Heaven is an e-commerce website designed to help people easily buy gadget
 - Detailed product descriptions to ensure informed decisions
 - Smooth navigation and shopping experience across all categories
 
-## React Fundamental Concepts Used in This Project
+### React Fundamental Concepts Used in This Project
 
 This project incorporates several essential React concepts, including:
 
 - **React State** for state management
-- **React Props** to pass data between components
+- **React Props** to pass # between components
 - **useReducer Hook** for managing complex state logic
 - **useEffect Hook** to handle side effects
 - Reusable components for a modular and maintainable codebase
 - Integration of third-party libraries for added functionality
+
+### This website is built using the fundamental React concept, Context API, for efficient state management and data sharing across components.
+
+### Requirement Document Link : <a href="">link</a>
