@@ -18,7 +18,7 @@ export default function GadgetCard({ gadget }) {
         <p className="text-gray-600 sm:text-xs">Price: {gadget.price}</p>
       </div>
       <Link to={`/productDetails/${gadget.product_id}`}>
-        <button className="mt-2 px-4 py-2 md:text-sm text-xs  text-primary font-semibold border-[1.5px] border-primary rounded-full hover:bg-purple-100 flex-grow">
+        <button className="mt-2 px-4 py-2 sm:text-sm text-[10px]  text-primary font-semibold border-[1.5px] border-primary rounded-full hover:bg-purple-100 flex-grow">
           View Details
         </button>
       </Link>

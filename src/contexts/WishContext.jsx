@@ -5,7 +5,6 @@ const WishContext = createContext();
 
 function WishProvider({ children }) {
   const [wishItems, setWishItems] = useState([]);
-  console.log(wishItems);
 
   return (
     <WishContext.Provider value={{ wishItems, setWishItems }}>

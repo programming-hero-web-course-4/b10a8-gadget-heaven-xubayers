@@ -21,10 +21,19 @@
     @apply absolute text-sm flex flex-col items-center rounded-md space-y-2 top-7 left-4 p-2 shadow-md bg-white z-20;
   }
   .categoryBtn {
-    @apply px-5  py-2 rounded-3xl  text-gray-600 w-full text-left hover:bg-primary hover:text-white bg-gray-400/20 transition-all duration-100 flex md:text-base text-sm items-center text-center;
+    @apply px-5  py-2 rounded-3xl  text-gray-600 w-full md:text-left hover:bg-primary hover:text-white bg-gray-400/20 transition-all duration-100 flex md:text-base text-sm items-center text-center;
   }
   .footerCategories {
     @apply text-xl text-gray-800 font-bold;
+  }
+  .customBtn {
+    @apply md:py-2.5 py-1.5 md:px-14 px-3 rounded-full  font-semibold md:text-[16px] text-sm;
+  }
+  .dashboardCartBtn {
+    @apply customBtn bg-white/95 text-black border duration-100 transition-all border-white;
+  }
+  .dashboardWishBtn {
+    @apply customBtn border border-white  transition-all duration-100;
   }
 }
 

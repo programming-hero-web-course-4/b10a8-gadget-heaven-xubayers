@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { useLoaderData, useParams } from "react-router-dom";
-import { FaStar, FaRegStar } from "react-icons/fa";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { useCart } from "../contexts/CartContext";
 import { useWish } from "../contexts/WishContext";
+import ReactStars from "react-rating-stars-component";
 import toast from "react-hot-toast";
-// const notify = () =>
 
 export default function Details() {
   const { gadgetId } = useParams();
@@ -16,23 +15,28 @@ export default function Details() {
   const { wishItems, setWishItems } = useWish();
 
   const handleCart = (cartedProd) => {
-    if (cartItems.findIndex((p) => p === cartedProd) === -1) {
+    const isTrue = cartItems.some(
+      (prod) => prod.product_id === cartedProd.product_id
+    );
+
+    if (!isTrue) {
       setCartItems([...cartItems, cartedProd]);
       toast("✅ Product added in cart");
     } else {
-      toast("❌ Product already exist!");
-      return;
+      toast("❌ Product already exists!");
     }
   };
 
   const handleWish = (wishesProd) => {
-    console.log("clicked");
-    if (wishItems.findIndex((p) => p === wishesProd) === -1) {
+    const isTrue1 = wishItems.some(
+      (prod) => prod.product_id === wishesProd.product_id
+    );
+
+    if (!isTrue1) {
       setWishItems([...wishItems, wishesProd]);
       toast("✅ Product added in wishLish");
     } else {
       toast("❌ Product already exist!");
-      return;
     }
   };
 
@@ -53,21 +57,21 @@ export default function Details() {
   } = product;
 
   return (
-    <div className="md:p-5 p-2 md:h-[500px] 2xl:h-[500px] rounded-2xl absolute w-full left-0 ">
-      <div className="bg-white p-6 rounded-lg shadow-lg md:flex space-x-4 h-full">
-        <div className="md:w-1/3 md:h-full  p-2 rounded-lg  border flex justify-center items-center">
+    <div className="md:p-5 p-3 rounded-2xl absolute w-full left-0 ">
+      <div className="bg-white p-6 rounded-lg shadow-lg md:flex space-x-4 ">
+        <div className="md:w-1/3  my-auto  p-2 rounded-lg   flex justify-center items-center">
           <img
             src={product_image}
-            className="md:h-full  max-h-40 object-contain"
+            className="md:h-full  md:max-h-52 h-44 object-contain"
             alt=""
           />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 md:border-l md:border-t-0 border-t pt-3 md:pt-0 md:pl-3">
           <h3 className="md:text-2xl text-xl text-black font-semibold">
             {product_title}
           </h3>
           <p className="text-lg font-semibold text-gray-700 mt-2">
-            Price: {price}
+            Price: ${price}
           </p>
           <span
             className={`border border-purple-400 inline-block ${
@@ -89,27 +93,20 @@ export default function Details() {
           <div className="flex items-center mt-1">
             <div className="flex items-center">
               <div className="flex text-yellow-400 text-sm gap-2">
-                <span>
-                  <FaStar />
-                </span>
-                <span>
-                  <FaStar />
-                </span>
-                <span>
-                  <FaStar />
-                </span>
-                <span>
-                  <FaStar />
-                </span>
-
-                <span className="text-gray-300">
-                  <FaRegStar className="text-black" />
-                </span>
+                <ReactStars
+                  count={5}
+                  size={24}
+                  isHalf={true}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffd700"
+                />
               </div>
               <span className="text-gray-500 ml-2"> {rating} </span>
             </div>
           </div>
-          <div className="flex mt-4 gap-3 items-center">
+          <div className="flex py-4  gap-3 items-center">
             <button
               className=" px-5  bg-primary text-white py-2 rounded-full hover:bg-primary/80 flex justify-center items-center space-x-2 "
               onClick={() => handleCart(product)}
