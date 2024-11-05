@@ -23,6 +23,6 @@ This project incorporates several essential React concepts, including:
 
 ### This website is built using the fundamental React concept, Context API, for efficient state management and data sharing across components.
 
-### Requirement Document Link : <a href="./src/public/Requerement Documents.pdf">click..</a>
+### Requirement Document Link : <a href="/public/Requerement Documents.pdf">click..</a>
 
 ### Live Site Link : <a href="https://gadgetstudio-esshop.surge.sh/">click....</a>
