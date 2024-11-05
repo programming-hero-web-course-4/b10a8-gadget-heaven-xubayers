@@ -21,8 +21,14 @@ This project incorporates several essential React concepts, including:
 - Reusable components for a modular and maintainable codebase
 - Integration of third-party libraries for added functionality
 
-### This website is built using the fundamental React concept, Context API, for efficient state management and data sharing across components.
+## Data Handling and Management
 
-### Requirement Document Link : <a href="/public/Requerement Documents.pdf">click..</a>
+This project uses **Context API** to manage cart and wishlist data, allowing users to maintain their selections.
 
-### Live Site Link : <a href="https://gadgetstudio-esshop.surge.sh/">click....</a>
+### Requirement Document Link
+
+<a href="/public/Requerement Documents.pdf">click..</a>
+
+### Live Site Link
+
+surge - <a href="https://gadgetstudio-esshop.surge.sh/">click....</a>
