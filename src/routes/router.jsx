@@ -6,11 +6,13 @@ import Dashboard from "../pages/Dashboard";
 import GadgetGrid from "../components/GadgetGrid";
 import axios from "axios";
 import DetailsGadgate from "../utils/DetailsGadgate";
+import ErrorPage from "../err/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
