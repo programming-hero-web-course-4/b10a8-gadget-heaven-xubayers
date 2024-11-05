@@ -17,14 +17,12 @@ export default function Nav() {
     pathname === "/" ||
     (pathname.includes("/productCategory") &&
       !pathname.includes("/productCategory/Computers/details"));
-  // console.log(pathname.split("/")[0] === "/category");
-  // console.log(pathname.includes("/category"));
+
   useEffect(() => {
     if (!isRootPath) {
       navRaf.current.classList.remove("bg-primary");
       navRaf.current.classList.add("bg-white", "text-black");
     } else {
-      document.title = "Gadget || Gadget Section";
       navRaf.current.classList.remove("bg-white");
       navRaf.current.classList.add("bg-primary");
     }

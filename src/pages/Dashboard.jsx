@@ -41,6 +41,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
+    document.title = "Dashboard || Gadget Heaven";
     cartHandler();
   }, []);
 
