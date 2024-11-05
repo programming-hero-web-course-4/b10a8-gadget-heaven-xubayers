@@ -35,6 +35,9 @@
   .dashboardWishBtn {
     @apply customBtn border border-white  transition-all duration-100;
   }
+  .inputF {
+    @apply outline-none bg-gray-100/80 px-3 py-2 rounded-md;
+  }
 }
 
 body {

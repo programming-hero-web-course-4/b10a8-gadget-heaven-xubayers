@@ -1,9 +1,14 @@
-import { useEffect, useReducer } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { createContext, useEffect, useReducer, useState } from "react";
 import Heading from "../utils/Heading";
 import { useCart } from "../contexts/CartContext";
 import { useWish } from "../contexts/WishContext";
 import CartTab from "../components/CartTab";
 import WishTab from "../components/WishTab";
+import Modal from "../components/Modal";
+import { useNavigate } from "react-router-dom";
+
+const MoneyContext = createContext();
 
 function Reducer(state, action) {
   switch (action.type) {
@@ -29,9 +34,17 @@ function Reducer(state, action) {
 }
 
 export default function Dashboard() {
-  const { cartItems } = useCart();
+  const { cartItems, setCartItems } = useCart();
   const { wishItems } = useWish();
   const [data, dispatch] = useReducer(Reducer, { items: [] });
+  const [cost, setCost] = useState(0);
+  const navigate = useNavigate();
+
+  const closeAndRfreshPage = () => {
+    setCost(0);
+    setCartItems([]);
+    navigate("/");
+  };
 
   const wishHandler = () => {
     dispatch({ type: "wish", data: wishItems });
@@ -44,8 +57,6 @@ export default function Dashboard() {
     document.title = "Dashboard || Gadget Heaven";
     cartHandler();
   }, []);
-
-  console.log(data);
 
   return (
     <div>
@@ -79,13 +90,18 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="container  mx-auto md:px-9 px-2 my-8">
-        {data.type === "cart" ? (
-          <CartTab data={data.items} />
-        ) : (
-          <WishTab data={data.items} />
-        )}
-      </div>
+      <MoneyContext.Provider value={{ cost, setCost }}>
+        <div className="container  mx-auto md:px-9 px-2 my-8">
+          {data.type === "cart" ? (
+            <CartTab data={data.items} />
+          ) : (
+            <WishTab data={data.items} />
+          )}
+        </div>
+        <Modal cost={cost} closeAndRfreshPage={closeAndRfreshPage} />
+      </MoneyContext.Provider>
     </div>
   );
 }
+
+export { MoneyContext };

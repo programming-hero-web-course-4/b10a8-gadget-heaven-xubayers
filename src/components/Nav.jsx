@@ -85,6 +85,16 @@ export default function Nav() {
                 >
                   Dashboard
                 </NavLink>
+                <NavLink
+                  to={"/customer-services"}
+                  className={({ isActive }) =>
+                    `${
+                      isActive ? "bg-slate-900 text-white" : "hover:bg-black/20"
+                    } navlies`
+                  }
+                >
+                  Customer Services
+                </NavLink>
               </ul>
             </details>
 
@@ -131,6 +141,16 @@ export default function Nav() {
               }
             >
               Dashboard
+            </NavLink>
+            <NavLink
+              to={"/customer-services"}
+              className={({ isActive }) =>
+                `${
+                  isActive ? "bg-slate-900 text-white" : "hover:bg-black/20"
+                } navlies`
+              }
+            >
+              Customer Services
             </NavLink>
           </ul>
           <ul className="flex text-[18px] text-white gap-3 ">

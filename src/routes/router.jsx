@@ -7,6 +7,7 @@ import GadgetGrid from "../components/GadgetGrid";
 import axios from "axios";
 import DetailsGadgate from "../utils/DetailsGadgate";
 import ErrorPage from "../err/ErrorPage";
+import CustomerServices from "../pages/CustomerServices";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/customer-services",
+        element: <CustomerServices />,
       },
       {
         path: "/productDetails/:gadgetId",

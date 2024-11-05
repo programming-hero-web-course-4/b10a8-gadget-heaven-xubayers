@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import DashboardCards from "../utils/DashboardCards";
 
 export default function WishTab({ data = [] }) {
-  console.log("render wish");
   return (
     <div>
       <div>

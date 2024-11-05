@@ -15,7 +15,7 @@ export default function GadgetCard({ gadget }) {
         <h3 className="md:text-lg text-sm font-semibold text-nowrap text-ellipsis overflow-hidden">
           {gadget.product_title}
         </h3>
-        <p className="text-gray-600 sm:text-xs">Price: {gadget.price}</p>
+        <p className="text-gray-600 sm:text-xs">Price: ${gadget.price}</p>
       </div>
       <Link to={`/productDetails/${gadget.product_id}`}>
         <button className="mt-2 px-4 py-2 sm:text-sm text-[10px]  text-primary font-semibold border-[1.5px] border-primary rounded-full hover:bg-purple-100 flex-grow">

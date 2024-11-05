@@ -1,11 +1,13 @@
 import { FaSortAmountDown } from "react-icons/fa";
 import DashboardCards from "../utils/DashboardCards";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MoneyContext } from "../pages/Dashboard";
 
 export default function CartTab({ data = [] }) {
-  const [cost, setCost] = useState(0);
+  const { cost, setCost } = useContext(MoneyContext);
   const [allData, setAlldData] = useState(data);
+  const [isDisable, setIsDisable] = useState(true);
 
   useEffect(() => {
     setCost(0);
@@ -14,8 +16,9 @@ export default function CartTab({ data = [] }) {
         const itemPrice = parseFloat(curr?.price);
         setCost((prev) => prev + itemPrice);
       }, 0);
+      setIsDisable(false);
     }
-  }, [data]);
+  }, [data, setCost]);
 
   const sortByPriceHandler = () => {
     const sortAllData = [...data].sort((a, b) => {
@@ -36,13 +39,23 @@ export default function CartTab({ data = [] }) {
           </h2>
           <div className="sm:flex am:space-y-0  space-y-2 gap-4 items-center">
             <button
-              className="customBtn border border-primary text-primary hover:bg-primary/10  flex items-center gap-2"
+              disabled={isDisable}
+              className={`customBtn border border-primary text-primary ${
+                !isDisable && "hover:bg-primary/10"
+              }  flex items-center gap-2`}
               onClick={sortByPriceHandler}
             >
               <p>Sort by Price </p>
               <FaSortAmountDown />
             </button>
-            <button className="customBtn sm:w-auto w-full bg-gradient-to-t to-primary via-primary from-[#DD66E7] hover:to-primary/75  text-white">
+            <button
+              disabled={isDisable}
+              onClick={() => document.getElementById("my_modal_1").showModal()}
+              className={`customBtn sm:w-auto w-full bg-gradient-to-t to-primary via-primary from-[#DD66E7] 
+                ${
+                  !isDisable ? "hover:to-primary/75" : "bg-gray-200"
+                }  text-white`}
+            >
               Purchase
             </button>
           </div>
