@@ -1,6 +1,6 @@
 ## Welcome to Gadget Heaven
 
-Gadget Heaven is an e-commerce website designed to help people easily buy gadgets of their choice. We offer a wide range of categories, giving users a seamless and enjoyable shopping experience.
+**Gadget Heaven** is an e-commerce website designed to help people easily buy gadgets of their choice. We offer a wide range of categories, giving users a seamless and enjoyable shopping experience.
 
 ## Features
 
@@ -19,7 +19,14 @@ This project incorporates several essential React concepts, including:
 - **useReducer Hook** for managing complex state logic
 - **useEffect Hook** to handle side effects
 - Reusable components for a modular and maintainable codebase
-- Integration of third-party libraries for added functionality
+
+## Used Technology
+
+- **React**: Component based UI library
+- **TailwindCSS**: For styling using defferent utilities
+- **React Router**: For get SPA feel and route different page
+- **Rect Tostify**: For manage website notification
+- **Etc**: There are several tecknologies use for this site.
 
 ## Data Handling and Management
 
@@ -27,8 +34,8 @@ This project uses **Context API** to manage cart and wishlist data, allowing use
 
 ### Requirement Document Link
 
-<a href="/public/Requerement Documents.pdf">click..</a>
+- <a href="/public/Requerement Documents.pdf">/public/Requerement Documents.pdf</a>
 
 ### Live Site Link
 
-surge - <a href="https://gadgetstudio-esshop.surge.sh/">click....</a>
+- surge <a href="https://gadgetstudio-esshop.surge.sh/">https://gadgetstudio-esshop.surge.sh/</a>
