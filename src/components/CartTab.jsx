@@ -31,13 +31,13 @@ export default function CartTab({ data = [] }) {
   };
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Cart</h2>
         <div className="flex gap-5 sm:items-center">
           <h2 className="md:text-xl sm:text-lg text-sm  md:font-bold font-semibold">
             Total Cost: ${cost.toFixed(2)}{" "}
           </h2>
-          <div className="sm:flex am:space-y-0  space-y-2 gap-4 items-center">
+          <div className="sm:flex sm:space-y-0  space-y-2 gap-4 items-center">
             <button
               disabled={isDisable}
               className={`customBtn border border-primary text-primary ${
