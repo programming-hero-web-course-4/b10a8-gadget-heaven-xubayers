@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Heading from "../utils/Heading";
 
 export default function CustomerServices() {
@@ -14,6 +14,10 @@ export default function CustomerServices() {
     topicRef.current.value = "";
     massegeRef.current.value = "";
   };
+
+  useEffect(() => {
+    document.title = "Costomer Services || Gadget Heaven";
+  }, []);
   return (
     <div>
       <div className=" bg-primary px-2 pb-4">

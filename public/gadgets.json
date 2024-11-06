@@ -4,7 +4,7 @@
     "product_title": "iPhone 13 Pro",
     "product_image": "https://i.ibb.co.com/JFmK8dW/Gatita-Sierra-Blue-Clear-Phone-Case-for-i-Phone-13-Sierra-Blue-Rim-Border-with-Hard-Crystal-Clear-PC.jpg",
     "category": "Phones",
-    "price": "1099.99",
+    "price": "109.99",
     "description": "The iPhone 13 Pro features an advanced triple-camera system for stunning photography and enhanced performance with the A15 Bionic chip.",
     "specification": [
       "6.1-inch Super Retina XDR display",
@@ -13,7 +13,7 @@
       "Triple 12MP camera system"
     ],
     "availability": true,
-    "rating": 4.8
+    "rating": 3.8
   },
   {
     "product_id": "111",
@@ -36,7 +36,7 @@
     "product_title": "HP 23.8 inch All-in-One",
     "product_image": "https://i.ibb.co.com/7j2VZnH/71w-KJVt-V-L-AC-UY327-FMwebp-QL65.webp",
     "category": "Computers",
-    "price": "999.99",
+    "price": "499.99",
     "description": "The HP 23.8 inch All-in-One PC boasts an FHD display, AMD Athlon Silver processor, and ample storage for everyday tasks.",
     "specification": [
       "23.8-inch FHD display",
@@ -52,7 +52,7 @@
     "product_title": "Dell OptiPlex Desktop",
     "product_image": "https://i.ibb.co.com/6YB86QW/Laptops-by-ebay.jpg",
     "category": "Computers",
-    "price": "929.99",
+    "price": "119.99",
     "description": "Refurbished Dell OptiPlex Desktop with an i7 processor and 16GB RAM for efficient multitasking.",
     "specification": [
       "Intel i7-6700 3.4GHz",
@@ -61,7 +61,7 @@
       "Windows 10 Pro"
     ],
     "availability": true,
-    "rating": 4.4
+    "rating": 3.4
   },
   {
     "product_id": "107",
@@ -100,7 +100,7 @@
     "product_title": "HP 17 Business Laptop",
     "product_image": "https://i.ibb.co.com/tPqZkNL/71h-Tu-Qii0-L-AC-SY300-SX300.jpg",
     "category": "Computers",
-    "price": "659.99",
+    "price": "79.99",
     "description": "HP 17 Business Laptop with a large HD+ display, powerful processing, and ample RAM for multitasking.",
     "specification": [
       "17.3-inch HD+ display",
@@ -109,14 +109,14 @@
       "1TB SSD"
     ],
     "availability": true,
-    "rating": 4.3
+    "rating": 2.3
   },
   {
     "product_id": "101",
     "product_title": "HP ProDesk 600 G3 SFF",
     "product_image": "https://i.ibb.co.com/7pTf7ck/81x9-laq-L0-L-AC-SX679.jpg",
     "category": "Computers",
-    "price": "999.99",
+    "price": "99.99",
     "description": "The HP ProDesk 600 G3 SFF is a compact desktop computer with excellent performance and storage capabilities.",
     "specification": [
       "Intel Core i5-6500",
@@ -132,7 +132,7 @@
     "product_title": "Samsung Galaxy S21",
     "product_image": "https://i.ibb.co.com/Zf6sDfY/Samsung-launches-Galaxy-S24-Ultra-flagship.jpg",
     "category": "Phones",
-    "price": "899.99",
+    "price": "99.99",
     "description": "The Samsung Galaxy S21 features a stunning display and cutting-edge technology for an incredible smartphone experience.",
     "specification": [
       "6.2-inch Dynamic AMOLED display",
@@ -148,7 +148,7 @@
     "product_title": "HP 2022 Newest All-in-One Desktop",
     "product_image": "https://i.ibb.co.com/rb8B0x6/91-Cd-WQGWAL-AC-UY327-FMwebp-QL65-1.webp",
     "category": "Computers",
-    "price": "545.99",
+    "price": "65.99",
     "description": "Latest HP All-in-One Desktop with powerful specs and a sleek design for modern computing.",
     "specification": [
       "All-in-One design",
@@ -164,7 +164,7 @@
     "product_title": "Acer Aspire Go 15 Slim Laptop",
     "product_image": "https://i.ibb.co.com/pjKjJxm/Laptop-Stickers-for-DELL-Inspiron-13-14-15-13-7391-Inspiron-14-7420-7430-15-5410-XPS-13-7390.jpg",
     "category": "Computers",
-    "price": "1499.99",
+    "price": "149.99",
     "description": "The Acer Aspire Go 15 is a slim laptop with a vibrant Full HD display and powerful performance.",
     "specification": [
       "15.6-inch Full HD IPS display",

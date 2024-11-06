@@ -7,6 +7,8 @@ import CartTab from "../components/CartTab";
 import WishTab from "../components/WishTab";
 import Modal from "../components/Modal";
 import { useNavigate } from "react-router-dom";
+import { WishCartProvider } from "../contexts/WishCartContext";
+import toast from "react-hot-toast";
 
 const MoneyContext = createContext();
 
@@ -35,7 +37,7 @@ function Reducer(state, action) {
 
 export default function Dashboard() {
   const { cartItems, setCartItems } = useCart();
-  const { wishItems } = useWish();
+  const { wishItems, setWishItems } = useWish();
   const [data, dispatch] = useReducer(Reducer, { items: [] });
   const [cost, setCost] = useState(0);
   const navigate = useNavigate();
@@ -57,6 +59,27 @@ export default function Dashboard() {
     document.title = "Dashboard || Gadget Heaven";
     cartHandler();
   }, []);
+
+  const handleCart = (cartedProd) => {
+    const isTrue = cartItems.some(
+      (prod) => prod.product_id === cartedProd.product_id
+    );
+
+    if (!isTrue) {
+      setCartItems([...cartItems, cartedProd]);
+      toast("✅ Product added in cart");
+
+      const filterWishContextItem = wishItems.filter(
+        (item) => item !== cartedProd
+      );
+      setWishItems(filterWishContextItem);
+
+      const filterWishItem = wishItems.filter((item) => item !== cartedProd);
+      dispatch({ type: "wish", data: filterWishItem });
+    } else {
+      toast("❌ Product already exists!");
+    }
+  };
 
   return (
     <div>
@@ -95,7 +118,9 @@ export default function Dashboard() {
           {data.type === "cart" ? (
             <CartTab data={data.items} />
           ) : (
-            <WishTab data={data.items} />
+            <WishCartProvider value={{ handleCart }}>
+              <WishTab data={data.items} />
+            </WishCartProvider>
           )}
         </div>
         <Modal cost={cost} closeAndRfreshPage={closeAndRfreshPage} />

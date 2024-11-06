@@ -27,20 +27,3 @@ export default function WishTab({ data = [] }) {
 WishTab.propTypes = {
   data: PropTypes.array,
 };
-
-// {
-//     "product_id": "107",
-//     "product_title": "Samsung Galaxy Watch 4",
-//     "product_image": "https://i.ibb.co.com/2KLTQcm/Black-Silver-Time-Display-Round-Adult-Used-Smart-Watch-For-Samsung-Galaxy-Watch-4-Classic-Sm-R890.jpg",
-//     "category": "Smart Watches",
-//     "price": "$249.99",
-//     "description": "Samsung Galaxy Watch 4 offers advanced health tracking features and a sleek design.",
-//     "specification": [
-//       "1.4-inch AMOLED display",
-//       "BioActive sensor",
-//       "GPS and heart rate monitoring",
-//       "Sleep tracking"
-//     ],
-//     "availability": false,
-//     "rating": 4.5
-//   },

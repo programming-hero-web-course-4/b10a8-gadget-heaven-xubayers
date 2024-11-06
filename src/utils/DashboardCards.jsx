@@ -1,25 +1,12 @@
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { BsCart4 } from "react-icons/bs";
 import PropTypes from "prop-types";
-import { useCart } from "../contexts/CartContext";
-import toast from "react-hot-toast";
+import { useContext } from "react";
+import { WishCactContext } from "../contexts/WishCartContext";
 
 export default function DashboardCards({ data, wish = false }) {
-  const { cartItems, setCartItems } = useCart();
   const { product_title, product_image, price, description } = data || {};
-
-  const handleCart = (cartedProd) => {
-    const isTrue = cartItems.some(
-      (prod) => prod.product_id === cartedProd.product_id
-    );
-
-    if (!isTrue) {
-      setCartItems([...cartItems, cartedProd]);
-      toast("✅ Product added in cart");
-    } else {
-      toast("❌ Product already exists!");
-    }
-  };
+  const { handleCart = null } = useContext(WishCactContext) || {};
 
   return (
     <div className="flex items-center justify-between bg-white p-6 border rounded-xl shadow-sm">

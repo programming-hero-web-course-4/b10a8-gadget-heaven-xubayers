@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { useLoaderData, useParams } from "react-router-dom";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { useCart } from "../contexts/CartContext";
 import { useWish } from "../contexts/WishContext";
-import ReactStars from "react-rating-stars-component";
 import toast from "react-hot-toast";
+import { FaHeart } from "react-icons/fa6";
 
 export default function Details() {
   const { gadgetId } = useParams();
@@ -13,6 +14,9 @@ export default function Details() {
   const [product, setProduct] = useState({});
   const { cartItems, setCartItems } = useCart();
   const { wishItems, setWishItems } = useWish();
+  const [isTrue1, setIsTrue1] = useState(false);
+  const [newWishItem, setNewWishItem] = useState(null);
+  const [trues, setTrues] = useState();
 
   const handleCart = (cartedProd) => {
     const isTrue = cartItems.some(
@@ -27,17 +31,23 @@ export default function Details() {
     }
   };
 
+  useEffect(() => {
+    if (!isTrue1 && newWishItem) {
+      setTrues(true);
+      setWishItems([...wishItems, newWishItem]);
+      toast("✅ Product added to wishlist");
+    } else if (isTrue1 && !newWishItem) {
+      toast("❌ Product already exists!");
+    }
+    setNewWishItem(null);
+  }, [isTrue1, newWishItem]);
+
   const handleWish = (wishesProd) => {
-    const isTrue1 = wishItems.some(
+    const isTrue = wishItems.some(
       (prod) => prod.product_id === wishesProd.product_id
     );
-
-    if (!isTrue1) {
-      setWishItems([...wishItems, wishesProd]);
-      toast("✅ Product added in wishLish");
-    } else {
-      toast("❌ Product already exist!");
-    }
+    setIsTrue1(isTrue);
+    setNewWishItem(wishesProd);
   };
 
   useEffect(() => {
@@ -92,17 +102,17 @@ export default function Details() {
           <p className="font-semibold  text-black mt-2">Rating 🌟</p>
           <div className="flex items-center mt-1">
             <div className="flex items-center">
-              <div className="flex text-yellow-400 text-sm gap-2">
-                <ReactStars
-                  count={5}
-                  size={24}
-                  isHalf={true}
-                  emptyIcon={<i className="far fa-star"></i>}
-                  halfIcon={<i className="fa fa-star-half-alt"></i>}
-                  fullIcon={<i className="fa fa-star"></i>}
-                  activeColor="#ffd700"
-                />
-              </div>
+              {rating > 4 ? (
+                <div className="flex text-yellow-400 text-sm gap-2 items-center">
+                  <span>⭐</span>
+                  <span>⭐</span>
+                  <span>⭐</span>
+                  <span>⭐</span> <span className="text-xl">☆ </span>
+                </div>
+              ) : (
+                ""
+              )}
+
               <span className="text-gray-500 ml-2"> {rating} </span>
             </div>
           </div>
@@ -117,10 +127,11 @@ export default function Details() {
               </span>
             </button>
             <button
+              disabled={trues}
               className="text-black text-lg border-2 rounded-full p-2 h-10 aspect-square flex justify-center items-center"
               onClick={() => handleWish(product)}
             >
-              <IoIosHeartEmpty />
+              {trues ? <FaHeart /> : <IoIosHeartEmpty />}
             </button>
           </div>
         </div>
