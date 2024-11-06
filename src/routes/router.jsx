@@ -35,6 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/statistics",
         element: <Statistics />,
+        loader: () => axios.get("/gadgets.json"),
       },
       {
         path: "/dashboard",
