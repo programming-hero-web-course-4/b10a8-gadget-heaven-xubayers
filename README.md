@@ -39,3 +39,4 @@ This project uses **Context API** to manage cart and wishlist data, allowing use
 ### Live Site Link
 
 - surge <a href="https://gadgetstudio-esshop.surge.sh/">https://gadgetstudio-esshop.surge.sh/</a>
+- vercel <a href="https://gadgetstudio-esshop2-ek94wvz0c-jubayer-s-projects.vercel.app">https://gadgetstudio-esshop2-ek94wvz0c-jubayer-s-projects.vercel.app</a>
