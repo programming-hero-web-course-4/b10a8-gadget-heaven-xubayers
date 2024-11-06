@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function Heading({ title, desc }) {
   return (
     <div className="w-full  flex flex-col justify-center items-center text-center">
