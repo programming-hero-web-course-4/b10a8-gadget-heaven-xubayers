@@ -38,7 +38,7 @@ export default function Nav() {
 
   return (
     <header
-      className={`${isRootPath ? "bg-gray-100" : "bg-white"} md:pt-8 pt-3 `}
+      className={`${isRootPath ? "bg-gray-100" : "bg-white"} md:pt-5 pt-3 `}
     >
       <div
         ref={navRaf}
