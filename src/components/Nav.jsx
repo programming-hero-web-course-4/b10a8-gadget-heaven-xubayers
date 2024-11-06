@@ -32,6 +32,10 @@ export default function Nav() {
     navigate("/");
   };
 
+  const goToDashboard = () => {
+    navigate("/dashboard");
+  };
+
   return (
     <header
       className={`${isRootPath ? "bg-gray-100" : "bg-white"} md:pt-8 pt-3 `}
@@ -154,13 +158,13 @@ export default function Nav() {
             </NavLink>
           </ul>
           <ul className="flex text-[18px] text-white gap-3 ">
-            <li className="navCartAndHeartIcon border">
+            <li className="navCartAndHeartIcon border" onClick={goToDashboard}>
               <IoCartOutline />
               <span className="notification bg-orange-600">
                 {cartItems.length}
               </span>
             </li>
-            <li className="navCartAndHeartIcon border">
+            <li className="navCartAndHeartIcon border" onClick={goToDashboard}>
               <IoIosHeartEmpty />
               <span className="notification bg-green-600">
                 {wishItems.length}

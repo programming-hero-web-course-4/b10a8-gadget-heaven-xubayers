@@ -109,8 +109,22 @@ export default function Details() {
                   <span>⭐</span>
                   <span>⭐</span> <span className="text-xl">☆ </span>
                 </div>
+              ) : rating > 3 ? (
+                <div className="flex text-yellow-400 text-sm gap-2 items-center">
+                  <span>⭐</span>
+                  <span>⭐</span>
+                  <span>⭐</span>
+                  <span className="text-xl">☆ </span>
+                  <span className="text-xl">☆ </span>
+                </div>
               ) : (
-                ""
+                <div className="flex text-yellow-400 text-sm gap-2 items-center">
+                  <span>⭐</span>
+                  <span>⭐</span>
+                  <span className="text-xl">☆ </span>
+                  <span className="text-xl">☆ </span>
+                  <span className="text-xl">☆ </span>
+                </div>
               )}
 
               <span className="text-gray-500 ml-2"> {rating} </span>

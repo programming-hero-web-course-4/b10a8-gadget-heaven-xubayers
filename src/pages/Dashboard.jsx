@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import Heading from "../utils/Heading";
 import { useCart } from "../contexts/CartContext";
 import { useWish } from "../contexts/WishContext";
@@ -9,8 +9,7 @@ import Modal from "../components/Modal";
 import { useNavigate } from "react-router-dom";
 import { WishCartProvider } from "../contexts/WishCartContext";
 import toast from "react-hot-toast";
-
-const MoneyContext = createContext();
+import { useMoney } from "../contexts/MoneyContext";
 
 function Reducer(state, action) {
   switch (action.type) {
@@ -39,13 +38,25 @@ export default function Dashboard() {
   const { cartItems, setCartItems } = useCart();
   const { wishItems, setWishItems } = useWish();
   const [data, dispatch] = useReducer(Reducer, { items: [] });
-  const [cost, setCost] = useState(0);
   const navigate = useNavigate();
+  const { cost, setCost } = useMoney();
 
   const closeAndRfreshPage = () => {
     setCost(0);
     setCartItems([]);
     navigate("/");
+  };
+
+  const deledCardHandler = (wish, data) => {
+    if (wish) {
+      const filterWishItems = wishItems.filter((item) => item !== data);
+      setWishItems(filterWishItems);
+      dispatch({ type: "wish", data: filterWishItems });
+    } else {
+      const filterCartItems = cartItems.filter((item) => item !== data);
+      setCartItems(filterCartItems);
+      dispatch({ type: "cart", data: filterCartItems });
+    }
   };
 
   const wishHandler = () => {
@@ -113,20 +124,16 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <MoneyContext.Provider value={{ cost, setCost }}>
-        <div className="container  mx-auto md:px-9 px-2 my-8">
-          {data.type === "cart" ? (
-            <CartTab data={data.items} />
-          ) : (
-            <WishCartProvider value={{ handleCart }}>
-              <WishTab data={data.items} />
-            </WishCartProvider>
-          )}
-        </div>
-        <Modal cost={cost} closeAndRfreshPage={closeAndRfreshPage} />
-      </MoneyContext.Provider>
+      <div className="container  mx-auto md:px-9 px-2 my-8">
+        {data.type === "cart" ? (
+          <CartTab data={data.items} deledCardHandler={deledCardHandler} />
+        ) : (
+          <WishCartProvider value={{ handleCart }}>
+            <WishTab data={data.items} deledCardHandler={deledCardHandler} />
+          </WishCartProvider>
+        )}
+      </div>
+      <Modal cost={cost} closeAndRfreshPage={closeAndRfreshPage} />
     </div>
   );
 }
-
-export { MoneyContext };

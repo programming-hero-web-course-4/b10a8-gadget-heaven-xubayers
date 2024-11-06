@@ -1,13 +1,17 @@
 import { FaSortAmountDown } from "react-icons/fa";
 import DashboardCards from "../utils/DashboardCards";
 import PropTypes from "prop-types";
-import { useContext, useEffect, useState } from "react";
-import { MoneyContext } from "../pages/Dashboard";
+import { useEffect, useState } from "react";
+import { useMoney } from "../contexts/MoneyContext";
 
-export default function CartTab({ data = [] }) {
-  const { cost, setCost } = useContext(MoneyContext);
-  const [allData, setAlldData] = useState(data);
+export default function CartTab({ data = [], deledCardHandler }) {
+  const { cost, setCost } = useMoney();
+  const [allData, setAlldData] = useState([]);
   const [isDisable, setIsDisable] = useState(true);
+
+  useEffect(() => {
+    setAlldData(data);
+  }, [data]);
 
   useEffect(() => {
     setCost(0);
@@ -69,7 +73,13 @@ export default function CartTab({ data = [] }) {
         ) : (
           <div className="flex flex-col gap-4">
             {allData.map((item, i) => {
-              return <DashboardCards data={item} key={i} />;
+              return (
+                <DashboardCards
+                  data={item}
+                  key={i}
+                  deledCardHandler={deledCardHandler}
+                />
+              );
             })}
           </div>
         )}
@@ -80,4 +90,5 @@ export default function CartTab({ data = [] }) {
 
 CartTab.propTypes = {
   data: PropTypes.array,
+  deledCardHandler: PropTypes.func,
 };

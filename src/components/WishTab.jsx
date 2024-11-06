@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import DashboardCards from "../utils/DashboardCards";
 
-export default function WishTab({ data = [] }) {
+export default function WishTab({ data = [], deledCardHandler }) {
   return (
     <div>
       <div>
@@ -15,7 +15,12 @@ export default function WishTab({ data = [] }) {
         ) : (
           <div className="flex flex-col gap-4">
             {data.map((item) => (
-              <DashboardCards data={item} wish key={item.product_id} />
+              <DashboardCards
+                data={item}
+                wish
+                key={item.product_id}
+                deledCardHandler={deledCardHandler}
+              />
             ))}
           </div>
         )}
@@ -26,4 +31,5 @@ export default function WishTab({ data = [] }) {
 
 WishTab.propTypes = {
   data: PropTypes.array,
+  deledCardHandler: PropTypes.func,
 };

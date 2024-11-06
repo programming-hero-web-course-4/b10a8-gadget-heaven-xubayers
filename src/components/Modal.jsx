@@ -13,7 +13,7 @@ export default function Modal({ closeAndRfreshPage, cost }) {
             Payment Successfully
           </h3>
           <p className="py-2">Thanks for Purchasing</p>
-          <p>Total: ${cost} </p>
+          <p>Total: ${cost.toFixed(2)} </p>
           <div className="modal-action w-full">
             <form
               method="dialog"

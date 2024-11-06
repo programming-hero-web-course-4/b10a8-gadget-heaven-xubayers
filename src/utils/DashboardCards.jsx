@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { WishCactContext } from "../contexts/WishCartContext";
 
-export default function DashboardCards({ data, wish = false }) {
+export default function DashboardCards({
+  data,
+  deledCardHandler,
+  wish = false,
+}) {
   const { product_title, product_image, price, description } = data || {};
   const { handleCart = null } = useContext(WishCactContext) || {};
 
@@ -31,7 +35,10 @@ export default function DashboardCards({ data, wish = false }) {
           )}
         </div>
       </div>
-      <button className="text-red-500 text-3xl hover:text-red-700">
+      <button
+        className="text-red-500 text-3xl hover:text-red-700"
+        onClick={() => deledCardHandler(wish, data)}
+      >
         <MdOutlineDeleteForever />
       </button>
     </div>
@@ -40,4 +47,5 @@ export default function DashboardCards({ data, wish = false }) {
 DashboardCards.propTypes = {
   data: PropTypes.object,
   wish: PropTypes.bool,
+  deledCardHandler: PropTypes.func,
 };
